@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Test Select Menu MF</title>
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<style>
+	textarea 
+	{
+    	width: 800px;
+	}
+	input[type="text"] 
+	{
+    	width: 800px;
+	}
+</style>
+
+
+
+</head>
+<body>
+<div id="content" style="padding:40px 0 0 40px;">
+<br />
+<br />
+<br />
+Redemption Type
+<select id="MutualFund.RedemptionType" name="MutualFund.RedemptionType" onChange="processing(this)">
+<option value="">-- Please select --</option>
+<option value="Full">Full</option>
+<option value="Partial">Partial</option>
+</select>
+<br /><br />
+MF Company 
+<select id="MutualFund.ManagementCompany" name="MutualFund.ManagementCompany" onChange="processing(this)">
+<option value="">-- Please Select --</option> 
+<option value="HSBC World Selection">HSBC World Selection</option> 
+<option value="HSBC Global Investment Funds">HSBC Global Investment Funds</option> 
+<option value="Blackrock">Blackrock</option> 
+<option value="JP Morgan">JP Morgan</option> 
+<option value="Schroders">Schroders</option> 
+</select>
+<br /><br />
+New Formatted Account List
+<select id="Accounts.AccountsFiltered" name="Accounts.AccountsFiltered" onChange="processing(this)">
+<!-- <option value="">-- Please Select --</option>  -->
+</select>
+
+
+<br /><br />
+Redemption Units <input type="text"  name="MutualFund.RedemptionUnits" id="MutualFund.RedemptionUnits" value="" onkeyup="processing(this)">
+<br />
+<br />
+Amount <input type="text" name="MutualFund.Amount" id="MutualFund.Amount" type="text" value="" />
+
+<br /><br />
+<br /><br />
+<br /><br />
+Unformatted Account List to WAB <input type="text" name="Accounts.AccountListUnformatted2" id="Accounts.AccountListUnformatted2" type="text" value="" />
+<br>
+Accounts' balances (hidden)  to WAB <input type="text" name="Accounts.AccountListBalance2" id="Accounts.AccountListBalance2" type="text" value="" />
+<br>
+Mutual Fund type (hidden)   to WAB <input type="text" name="MutualFund.Type2" id="MutualFund.Type2" type="text" value="" />
+<br>
+Formatted Account List to WAB <input type="text" name="Accounts.AccountList2" id="Accounts.AccountList2" type="text" value="" />
+<br>
+Mutual Fund Product Description (hidden) to WAB <input type="text" name="MutualFund.ProductTitle2" id="MutualFund.ProductTitle2" type="text" value="" />
+<br>
+Unformatted Account List (hidden) 
+<select id="Accounts.AccountListUnformatted" name="Accounts.AccountListUnformatted">
+<option value="">-- Please select --</option>
+<option value="0">000000003</option>
+<option value="1">000000008</option>
+<option value="2">000000194</option>
+<option value="3">000000260</option>
+<option value="4">000000595</option>
+<option value="5">000000923</option>
+<option value="6">000001272</option>
+<option value="7">000001408</option>
+<option value="8">000001555</option>
+<option value="9">000002576</option>
+<option value="10">000011210</option>
+<option value="11">000014432</option>
+<option value="12">000040201</option>
+<option value="13">000061720</option>
+<option value="14">000177431</option>
+<option value="15">000196624</option>
+<option value="16">000215765</option>
+<option value="17">000304001</option>
+<option value="18">000322001</option>
+<option value="19">000370984</option>
+<option value="20">000701001</option>
+</select>
+<br />
+<br />
+Accounts' balances (hidden) 
+<select id="Accounts.AccountListBalance" name="Accounts.AccountListBalance">
+<option value="">-- Please select --</option>
+<option value="0">5107.72</option>
+<option value="1">4184.68</option>
+<option value="2">4564.66</option>
+<option value="3">5537.11</option>
+<option value="4">3566.43</option>
+<option value="5">5064.17</option>
+<option value="6">7543.53</option>
+<option value="7">5521.69</option>
+<option value="8">6352.93</option>
+<option value="9">5267.39</option>
+<option value="10">5933.41</option>
+<option value="11">331340.00</option>
+<option value="12">4083.63</option>
+<option value="13">6275.26</option>
+<option value="14">5292.10</option>
+<option value="15">8137.32</option>
+<option value="16">6981.56</option>
+<option value="17">6584.30</option>
+<option value="18">6479.76</option>
+<option value="19">4504.43</option>
+<option value="20">4905.38</option>
+</select>
+<br />
+<br />
+Mutual Fund type (hidden) 
+<select id="MutualFund.Type" name="MutualFund.Type">
+<option value="">-- Please select --</option>
+<option value="0">1WT</option>
+<option value="1">1BL</option>
+<option value="2">1IE</option>
+<option value="3">1IU</option>
+<option value="4">1RA</option>
+<option value="5">1WI</option>
+<option value="6">1KA</option>
+<option value="7">1AK</option>
+<option value="8">1KA</option>
+<option value="9">1BH</option>
+<option value="10">1EA</option>
+<option value="11">1GH</option>
+<option value="12">1LA</option>
+<option value="13">1UF</option>
+<option value="14">1WE</option>
+<option value="15">1GL</option>
+<option value="16">1WE</option>
+<option value="17">1ID</option>
+<option value="18">1AM</option>
+<option value="19">1WM</option>
+<option value="20">1AE</option>
+</select>
+<br />
+<br />
+Formatted Account List 
+<select id="Accounts.AccountList" name="Accounts.AccountList">
+<option value=" ">-- Please Select --</option>
+<option value="0">000-XXX003; WSMF; GBP; HSBC World Selection 4 AC Hedged GBP</option>
+<option value="1">000-XXX008; HGIF; EUR; HGIF - Brazi Equity EC</option>
+<option value="2">000-XXX194; HGIF; EUR; HGIF - Indian Equity</option>
+<option value="3">000-XXX260; HGIF; USD; HGIF - Indian Equity</option>
+<option value="4">000-XXX595; HGIF; EUR; HGIF - Russia EUR</option>
+<option value="5">000-XXX923; WSMF; EUR; HSBC World Selection 2 AC Hedged EUR</option>
+<option value="6">000-XXX272; MRL; USD; BGF - Global Equity Income USD</option>
+<option value="7">000-XXX408; SCHR; EUR; Schroders ISF - Middle East EUR</option>
+<option value="8">000-XXX555; MRL; USD; BGF - Global Equity Income USD</option>
+<option value="9">000-XXX576; MRL; USD; BGF - World Agriculture A2 USD</option>
+<option value="10">000-XXX210; SCHR; USD; Schroders ISF - Latin American</option>
+<option value="11">000-XXX432; MRL; EUR; BGF - Global Allocation Fund</option>
+<option value="12">000-XXX201; SCHR; EUR; Schroders ISF - European Equity Alpha</option>
+<option value="13">000-XXX720; MRL; USD; BGF - US Flexible Equity Fund</option>
+<option value="14">000-XXX431; MRL; USD; BGF - World Energy Fund</option>
+<option value="15">000-XXX624; MRL; USD; BGF - Global Allocation Fund</option>
+<option value="16">000-XXX765; MRL; USD; BGF - World Energy Fund</option>
+<option value="17">000-XXX001; JPM; USD; JPM - Brazil Alpha Plus</option>
+<option value="18">000-XXX001; JPM; USD; JPM - Africa Equity USD</option>
+<option value="19">000-XXX984; MRL; USD; BGF - World Mining Fund</option>
+<option value="20">000-XXX001; JPM; USD; JPM - Global Natural Resources USD</option>
+</select>
+</select>
+<br />
+<br />
+Mutual Fund Product Description (hidden) 
+<select id="MutualFund.ProductTitle" name="MutualFund.ProductTitle">
+<option value="">-- Please Select --</option> 
+<option value="0">HSBC World Selection 4 AC Hedged GBP</option>
+<option value="1">HGIF - Brazi Equity EC</option>
+<option value="2">HGIF - Indian Equity</option>
+<option value="3">HGIF - Indian Equity</option>
+<option value="4">HGIF - Russia EUR</option>
+<option value="5">HSBC World Selection 2 AC Hedged EUR</option>
+<option value="6">BGF - Global Equity Income USD</option>
+<option value="7">Schroders ISF - Middle East EUR</option>
+<option value="8">BGF - Global Equity Income USD</option>
+<option value="9">BGF - World Agriculture A2 USD</option>
+<option value="10">Schroders ISF - Latin American</option>
+<option value="11">BGF - Global Allocation Fund</option>
+<option value="12">Schroders ISF - European Equity Alpha</option>
+<option value="13">BGF - US Flexible Equity Fund</option>
+<option value="14">BGF - World Energy Fund</option>
+<option value="15">BGF - Global Allocation Fund</option>
+<option value="16">BGF - World Energy Fund</option>
+<option value="17">JPM - Brazil Alpha Plus</option>
+<option value="18">JPM - Africa Equity USD</option>
+<option value="19">BGF - World Mining Fund</option>
+<option value="20">JPM - Global Natural Resources USD</option>
+</select>
+<br />
+
+</div>
+<script type="text/javascript">
+/*
+STRUCTURE:
+
+Everything rely on an object which has this structure:
+								0: 0 //usefull to populate the index 
+								1: "000-XXX003; WSMF; GBP; HSBC World Selection 4 AC Hedged GBP"
+								2: "HSBC World Selection 4 AC Hedged GBP"
+								3: "000000003"
+								4: "5107.72"
+								5: "1WT"
+
+								container[0][0] = 0;
+								container[0][1] = "000-XXX003; WSMF; GBP; HSBC World Selection 4 AC Hedged GBP"
+								container[0][4] = "5107.72"
+*/
+var redumption_unit =  document.getElementById("MutualFund.RedemptionUnits"),
+	Accounts_AccountList = document.getElementById("Accounts.AccountList"),
+	MutualFund_ProductTitle = document.getElementById("MutualFund.ProductTitle"),
+	Accounts_AccountListUnformatted = document.getElementById("Accounts.AccountListUnformatted"),
+	Accounts_AccountListBalance = document.getElementById("Accounts.AccountListBalance"),
+	MutualFund_Type = document.getElementById("MutualFund.Type"),
+	MutualFund_ProductTitleInput = document.getElementById("MutualFund.ProductTitleInput"),
+	MutualFund_ProductTitleFiltered = document.getElementById("Accounts.AccountsFiltered"),
+	MutualFund_ManagementCompany = document.getElementById("MutualFund.ManagementCompany"),
+	MutualFund_Amount = document.getElementById("MutualFund.Amount"),
+	MutualFund_RedemptionType = document.getElementById("MutualFund.RedemptionType"),
+	/*new fields*/
+	Accounts_AccountListUnformatted_to_Wab = document.getElementById("Accounts.AccountListUnformatted2"),
+	Accounts_AccountListBalance_to_Wab= document.getElementById("Accounts.AccountListBalance2"),
+	MutualFund_Type_to_Wab = document.getElementById("MutualFund.Type2"),
+	Accounts_AccountList_to_Wab = document.getElementById("Accounts.AccountList2"),
+	MutualFund_ProductTitle_to_Wab = document.getElementById("MutualFund.ProductTitle2"),
+	container = {};
+	console.log(redumption_unit);
+	console.log(Accounts_AccountList);
+
+	function init()
+	{
+		for (var i=1,j=Accounts_AccountList.options.length;i<j;i++)
+					{	
+				 		Array.prototype.push.call
+				 		(
+				 			container,
+				 			[	
+				 				i-1,
+					 			Accounts_AccountList.options[i].text, 
+					 			MutualFund_ProductTitle.options[i].text,
+					 			Accounts_AccountListUnformatted.options[i].text,
+					 			Accounts_AccountListBalance.options[i].text,
+					 			MutualFund_Type.options[i].text
+				 			]
+				 		);
+					}
+					setStateDropdown(true);
+	} 
+
+	//usefull function to clean dropdowns
+	function removeOptions(aDropDown)
+	{
+	    var i;
+	    for(i=aDropDown.options.length-1;i>=0;i--)
+	    {
+	        aDropDown.remove(i);
+	    }
+	    aDropDown.add(new Option("-- Please Select --", ""),null)
+	}
+	function cleanTextInputs()
+	{
+		Accounts_AccountListUnformatted_to_Wab.value="";
+		Accounts_AccountListBalance_to_Wab.value="";
+		MutualFund_Type_to_Wab.value="";
+		Accounts_AccountList_to_Wab.value="";
+		MutualFund_ProductTitle_to_Wab.value="";
+		MutualFund_Amount.value="";
+	}
+	function setStateDropdown(aBool){
+		MutualFund_ManagementCompany.disabled = aBool;
+		MutualFund_ProductTitleFiltered.disabled = aBool;
+	}
+	function fillinMyDropDown(aString){
+		for (var i=0,j=container.length;i<j;i++)
+		{
+		//console.log(container[i][1].split(';')[1]);
+			if (container[i][1].split(';')[1].match(aString))
+			{
+				
+				MutualFund_ProductTitleFiltered.add(
+					new Option
+							(
+								// container[i][0]+" - "+container[i][1].split(';')[0]+container[i][1].split(';')[2]+container[i][1].split(';')[3],
+								//prod line
+								container[i][1].split(';')[0]+container[i][1].split(';')[2]+container[i][1].split(';')[3],
+								 container[i][0]
+								 ),
+							null
+							);
+			}
+		}
+	}
+	//easy function that give 2 digit float, works in all browsers, especially ie
+	function toFixed(value, precision) {
+	    var precision = precision || 0,
+	    neg = value < 0,
+	    power = Math.pow(10, precision),
+	    value = Math.round(value * power),
+	    integral = String((neg ? Math.ceil : Math.floor)(value / power)),
+	    fraction = String((neg ? -value : value) % power),
+	    padding = new Array(Math.max(precision - fraction.length, 0) + 1).join('0');
+
+	    return precision ? integral + '.' +  padding + fraction : integral;
+	}
+	//we fill in our object here, make sure u load javascript at the end and not at the beginning!
+	init();
+	//removeOptions(MutualFund_ProductTitleFiltered);
+	function processing(selectedOject){
+
+			
+			
+			//MutualFund_ProductTitleFiltered.disabled = true;
+			//depending on MutualFund.RedemptionType, MutualFund.ManagementCompany  etc...
+			switch(selectedOject.id)
+			{
+				case "MutualFund.RedemptionType" :
+						cleanTextInputs();
+						//according redumption form, if full, MutualFund.RedemptionUnits not editable and set to 100 
+						if(selectedOject.options[selectedOject.selectedIndex].value == "Full")
+						{ 
+							//we readonly the textinput concerned
+							redumption_unit.readOnly = true;
+							//we set its value to 100.
+							redumption_unit.value = 100;
+							MutualFund_ManagementCompany.selectedIndex = 0;
+							MutualFund_ProductTitleFiltered.selectedIndex = 0;
+							setStateDropdown(false);
+						}
+						else if(selectedOject.options[selectedOject.selectedIndex].value == "Partial")
+						{
+							//we readonly the textinput concerned
+							redumption_unit.readOnly = false;
+							// user will have to set a value between 0 and 100 
+							MutualFund_ManagementCompany.selectedIndex = 0;
+							MutualFund_ProductTitleFiltered.selectedIndex = 0;
+							redumption_unit.value = '';
+							setStateDropdown(false);
+						}
+						else{
+							MutualFund_ManagementCompany.selectedIndex = 0;
+							MutualFund_ProductTitleFiltered.selectedIndex = 0;
+							setStateDropdown(true);
+						}
+						
+				break;
+				case "MutualFund.ManagementCompany" :
+				 	
+					cleanTextInputs();
+					MutualFund_ProductTitleFiltered.disabled = false;
+
+					//we fill in the dropdowm according the selection:
+
+						if(selectedOject.options[selectedOject.selectedIndex].value == "HSBC World Selection")
+						{
+							removeOptions(MutualFund_ProductTitleFiltered);
+							fillinMyDropDown("WSMF");
+						}
+						if(selectedOject.options[selectedOject.selectedIndex].value == "HSBC Global Investment Funds")
+						{
+							removeOptions(MutualFund_ProductTitleFiltered);
+							fillinMyDropDown("HGIF");
+						}
+						if(selectedOject.options[selectedOject.selectedIndex].value == "Blackrock")
+						{
+							removeOptions(MutualFund_ProductTitleFiltered);
+							fillinMyDropDown("MRL");
+						}
+						if(selectedOject.options[selectedOject.selectedIndex].value == "JP Morgan")
+						{
+							removeOptions(MutualFund_ProductTitleFiltered);
+							fillinMyDropDown("JPM");
+						}
+						if(selectedOject.options[selectedOject.selectedIndex].value == "Schroders")
+						{
+							removeOptions(MutualFund_ProductTitleFiltered);
+							fillinMyDropDown("SCHR");
+						}
+						if(selectedOject.options[selectedOject.selectedIndex].value == "")
+						{
+							removeOptions(MutualFund_ProductTitleFiltered);
+						}
+				break;
+				case "Accounts.AccountsFiltered" :
+				//we fill in everythiing....
+					/*container[index][its value, refer above..]*/
+					MutualFund_Amount.value="";
+					Accounts_AccountListUnformatted_to_Wab.value=container[selectedOject.options[selectedOject.selectedIndex].value][3];
+					Accounts_AccountListBalance_to_Wab.value=container[selectedOject.options[selectedOject.selectedIndex].value][4];
+					MutualFund_Type_to_Wab.value=container[selectedOject.options[selectedOject.selectedIndex].value][5];
+					Accounts_AccountList_to_Wab.value=container[selectedOject.options[selectedOject.selectedIndex].value][1];
+					MutualFund_ProductTitle_to_Wab.value=container[selectedOject.options[selectedOject.selectedIndex].value][2];
+
+					if (MutualFund_RedemptionType.options[MutualFund_RedemptionType.selectedIndex].value == "Full")
+					{
+						MutualFund_Amount.value=container[selectedOject.options[selectedOject.selectedIndex].value][4];
+					}
+					else
+					{
+					 	MutualFund_Amount.value=toFixed(container[selectedOject.options[selectedOject.selectedIndex].value][4]*(redumption_unit.value/100),2);
+					}
+
+				break;
+				case "MutualFund.RedemptionUnits" :
+
+				MutualFund_Amount.value=toFixed(container[MutualFund_ProductTitleFiltered.options[MutualFund_ProductTitleFiltered.selectedIndex].value][4]*
+				(redumption_unit.value/100),2);
+				break;
+				default: 
+				console('error[1]: Switch case overflow [entered default option]');
+
+
+			}
+		}
+ 
+</script>
+</html>
